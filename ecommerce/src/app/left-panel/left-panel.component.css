@@ -1,0 +1,18 @@
+.size {
+    scale: 1;
+}
+
+.slider {
+    scale: 1;
+}
+
+@media (max-width: 800px) {
+    .size {
+        transform: scaleX(0.6);
+    }
+
+    .slider {
+        scale: 0.5;
+    }
+
+}
