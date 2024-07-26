@@ -1,17 +1,38 @@
-<div>
-    <mat-paginator #paginator [length]="length" [pageSizeOptions]="[10, 50, 100]" aria-label="Select page" (click)="set(paginator)">
-    </mat-paginator>
+<div class="top">
+  <mat-paginator
+    #paginator
+    [length]="length"
+    [pageSizeOptions]="[10, 50, 100]"
+    aria-label="Select page"
+    (click)="set(paginator)"
+    (page)="handlePageEvent($event)"
+  >
+  </mat-paginator>
 </div>
-<div class="flex flex-wrap justify-center">
-    <div *ngFor="let item of data" class="item">
-        <img [src]=getImage(item) alt="" class="img">
-        <div>{{getTitle(item)}}</div>
-        <div class="flex gap-10"><span class="text-red-500"><del *ngIf="item.Mrp != item.Price">{{item.Mrp | currency:'INR'}}</del></span><span class="font-bold text-green-500">{{item.Price | currency:'INR'}}</span></div>
-        <div class="flex justify-between">
-            <div><button mat-raised-button style="scale: 0.8;" (click)="addCart(item)">Add to Cart</button></div>
-            <div><button mat-raised-button style="scale: 0.8;" (click)="buyNow(item)">Buy Now</button></div>
-        </div>
+<div class="flex flex-wrap justify-center product-ctn">
+  <div *ngFor="let item of data" class="item">
+    <img [src]="getImage(item)" alt="" class="img" />
+    <div>{{ getTitle(item) }}</div>
+    <div class="flex gap-10">
+      <span class="text-red-500"
+        ><del *ngIf="item.Mrp != item.Price">{{
+          convertToNum(item.Mrp) | currency : "INR"
+        }}</del></span
+      ><span class="font-bold text-green-500">{{
+        convertToNum(item.Price) | currency : "INR"
+      }}</span>
     </div>
-
-
+    <div class="flex justify-between">
+      <div>
+        <button mat-raised-button style="scale: 0.8" (click)="addCart(item)">
+          Add to Cart
+        </button>
+      </div>
+      <div>
+        <button mat-raised-button style="scale: 0.8" (click)="buyNow(item)">
+          Buy Now
+        </button>
+      </div>
+    </div>
+  </div>
 </div>

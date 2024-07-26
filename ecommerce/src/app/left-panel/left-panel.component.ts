@@ -4,7 +4,7 @@ import { EcomServService } from '../service/ecom-serv.service';
 @Component({
   selector: 'app-left-panel',
   templateUrl: './left-panel.component.html',
-  styleUrls: ['./left-panel.component.css']
+  styleUrls: ['./left-panel.component.css'],
 })
 export class LeftPanelComponent {
   min: number = 0;
@@ -17,15 +17,23 @@ export class LeftPanelComponent {
   ind: number[] = [];
 
   constructor(private ecomServ: EcomServService) {
-    ecomServ.filterSubject.subscribe(ele => {
-      this.data = ele;
-      for(let ele of this.data) {
-        if(this.brand.includes(ele.Brand)) {
-          continue;
-        }
-        this.brand.push(ele.Brand);
-      }
-    })
+    ecomServ.filterSubject.subscribe((e) => {
+      this.data = e;
+      this.brand = [];
+      ecomServ.brandsSubject.subscribe((b) => {
+        this.brand = b;
+      });
+    });
+
+    ecomServ.minValSubject.subscribe((e: number) => {
+      this.min = e;
+      this.a = e;
+    });
+
+    ecomServ.maxValSubject.subscribe((e: number) => {
+      this.max = e;
+      this.b = e;
+    });
   }
 
   priceVal() {
@@ -33,18 +41,17 @@ export class LeftPanelComponent {
   }
 
   brandChange(i: number) {
-    if(this.ind.includes(i)) {
+    if (this.ind.includes(i)) {
       let xyz = this.ind.indexOf(i);
-      this.ind = this.ind.splice(xyz, 1);
+      this.ind.splice(xyz, 1);
     } else {
       this.ind.push(i);
     }
 
     let temp: String[] = [];
-      for(let ele in this.ind) {
-        temp.push(this.brand[ele]);
-      }
+    for (let ele of this.ind) {
+      temp.push(this.brand[ele]);
+    }
     this.ecomServ.filterByBrand(temp);
   }
-
 }

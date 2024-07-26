@@ -1,14 +1,17 @@
-<div class="h-full flex justify-around items-center bg-amber-300 text-white">
-    <div class="font-mono text-center">
-        <h2 class="font">Shop Shop</h2>
-    </div>
-    <div class="flex bg-white" style="color:black">
-        <!-- <input class="input p-1" type="text" >
+<div
+  class="h-full flex justify-around items-center text-white"
+  style="background: #24f791"
+>
+  <div class="font-mono text-center">
+    <h2 class="font">Shop Shop</h2>
+  </div>
+  <div class="flex bg-white" style="color: black; background: #24f791">
+    <!-- <input class="input p-1" type="text" >
         <div style="width: 40px; height: 30px;" class="flex items-center justify-center">
             <img style="width: 20px; height: 20px; cursor: pointer;" src="https://icon-library.com/images/search-icon-transparent-background/search-icon-transparent-background-7.jpg" alt="">
         </div> -->
 
-        <!-- <input type="text"
+    <!-- <input type="text"
         placeholder="Pick one"
         aria-label="Number"
         matInput
@@ -21,28 +24,53 @@
    </mat-option>
  </mat-autocomplete> -->
 
- <mat-form-field>
-    <input type="text"
-           placeholder="Search"
-           aria-label="Number"
-           matInput
-           [matAutocomplete]="auto" [formControl]="myControl" class="input p-1" (keyup)="filter()">
-    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-      <mat-option *ngFor="let option of filteredOptions | async" [value]="option" (click)="filter()">
-        {{option}}
-      </mat-option>
-    </mat-autocomplete>
-  </mat-form-field>
-    </div>
+    <mat-form-field>
+      <input
+        type="text"
+        placeholder="Search"
+        aria-label="Number"
+        matInput
+        [matAutocomplete]="auto"
+        [formControl]="myControl"
+        class="input"
+        (keyup)="filter()"
+      />
+      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+        <mat-option
+          *ngFor="let option of filteredOptions | async"
+          [value]="option"
+          (click)="filter()"
+        >
+          {{ option }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </div>
 
-    <div class="flex items-center justify-around gap-10 menu">
-        <div>
-            <img class="img" src="https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/512x512/user.png" alt="">
-        </div>
-        <div class="flex gap-3 items-center" style="cursor: pointer; position: relative;">
-            <img class="img" src="https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/512x512/shopping_cart.png" alt="">
-            <div class="bg-amber-300" style="border: 1px solid transparent; border-radius: 50%; position: absolute; color:black; top: 0px; right: 0px;">{{cartItemLen}}</div>
-            <!-- <h3 style="margin-top: 10px;">Cart</h3> -->
-        </div>
+  <div class="flex items-center justify-around gap-10 menu">
+    <div>
+      <img class="img" src="../../assets/user.png" alt="" />
     </div>
+    <div
+      class="flex gap-3 items-center"
+      style="cursor: pointer; position: relative"
+      (click)="navigateCart()"
+    >
+      <img class="img" src="../../assets/shopping-cart.png" alt="" />
+      <div
+        style="
+          border: 1px solid transparent;
+          border-radius: 50%;
+          position: absolute;
+          color: black;
+          top: 0px;
+          right: 0px;
+          background-color: #24f791;
+        "
+      >
+        {{ cartItemLen }}
+      </div>
+      <!-- <h3 style="margin-top: 10px;">Cart</h3> -->
+    </div>
+  </div>
 </div>

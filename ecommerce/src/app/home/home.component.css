@@ -1,0 +1,22 @@
+.ctn {
+  height: 99%;
+  padding: 0px;
+  margin: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.header {
+  height: 10%;
+  position: sticky;
+  top: 0px;
+  z-index: 100;
+}
+
+.body {
+  height: 85%;
+}
+
+.footer {
+  height: 5%;
+}

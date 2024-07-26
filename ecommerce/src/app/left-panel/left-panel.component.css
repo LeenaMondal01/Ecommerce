@@ -1,18 +1,31 @@
 .size {
-    scale: 1;
+  scale: 1;
+  height: 100%;
 }
 
 .slider {
-    scale: 1;
+  scale: 1;
+}
+
+.brand-opt {
+  height: 80%;
+  overflow-y: auto;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.slider-bar {
+  width: 90%;
 }
 
 @media (max-width: 800px) {
-    .size {
-        transform: scaleX(0.6);
-    }
+  /* .size {
+    transform: scaleX(0.9);
+  } */
 
-    .slider {
-        scale: 0.5;
-    }
-
+  .slider-bar {
+    width: 50%;
+  }
 }

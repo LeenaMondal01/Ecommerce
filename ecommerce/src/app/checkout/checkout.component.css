@@ -1,0 +1,57 @@
+.font {
+  font-family: monospace;
+  padding: 16px;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.ctn {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+}
+
+.table-ctn {
+  width: 90%;
+}
+
+.home {
+  position: fixed;
+  right: 10%;
+  cursor: pointer;
+}
+
+.home:hover {
+  opacity: 0.8;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  color: black;
+  border: 1px solid rgb(243, 232, 232);
+  padding: 3px;
+  cursor: pointer;
+}
+
+.icon:hover {
+  opacity: 0.7;
+}
+
+.quantity {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.total-ctn {
+  display: flex;
+  border: 1px solid rgb(243, 232, 232);
+  padding: 10px;
+  justify-content: space-between;
+  align-items: center;
+}

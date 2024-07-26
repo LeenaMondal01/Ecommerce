@@ -1,39 +1,40 @@
 .menu {
-    border: none;
+  border: none;
 }
 
 .input {
-    height: 30px; 
-    width: 250px; 
-    outline: none; color: black;
+  height: 30px;
+  width: 250px;
+  outline: none;
+  color: black;
+  padding-left: 5px;
 }
 
 .font {
-    font-family: monospace;
+  font-family: monospace;
 }
 
 .img {
-    width: 40px; 
-    height: 40px;
-    cursor: pointer;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
 }
 
 @media (max-width: 550px) {
-    .menu {
-        gap: 4px;
-    }
+  .menu {
+    gap: 4px;
+  }
 
-    .input {
-        width: 150px;
-    }
+  .input {
+    width: 150px;
+  }
 
-    .font {
-        font-size: smaller;
-    }
+  .font {
+    font-size: smaller;
+  }
 
-    .img {
-        width: 30px;
-        height: 30px;
-    }
-
+  .img {
+    width: 30px;
+    height: 30px;
+  }
 }
